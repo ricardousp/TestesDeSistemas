@@ -69,8 +69,7 @@ public class UsuarioSystemTest {
 	public void deveEditarUmUsuario() {
 		usuariosPage.visita();
 		usuariosPage.novo().cadastrar("Paulo Henrique", "paulo@henrique.com");
-		usuariosPage.alteraUsuarioNaPosicao(1).para("Ronaldo Luiz de Albuquerque", "ronaldo2009@terra.com.br");
-		;
+		usuariosPage.alteraUsuarioNaPosicao(1).para("Ronaldo Luiz de Albuquerque", "ronaldo2009@terra.com.br");		
 		assertFalse(usuariosPage.existeNaListagem("Paulo Henrique", "paulo@henrique.com"));
 		assertTrue(usuariosPage.existeNaListagem("Ronaldo Luiz de Albuquerque", "ronaldo2009@terra.com.br"));
 	}
