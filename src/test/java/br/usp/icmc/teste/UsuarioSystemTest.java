@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import br.usp.icmc.page.ListarUsuariosPage;
+import br.usp.icmc.page.NovoUsuarioPage;
 import br.usp.icmc.util.WebDriverSingleton;
 
 public class UsuarioSystemTest {
@@ -88,6 +89,27 @@ public class UsuarioSystemTest {
 		assertTrue(usuariosPage.existeNaListagem("Ronaldo Luiz de Albuquerque", "ronaldo2009@terra.com.br"));  		
 	}
 	
-	// Passar os exerícios de usuáro com nome e sem e-mail... (Na apresentação...)
+	@Test
+	public void naoDeveAdicionarUmUsuarioSemNome(){		    
+		
+		NovoUsuarioPage formulario = usuariosPage.novo();
+		
+		formulario.cadastrar("", "ricardoramos.usp@gmail.com");				     	        
+        
+        assertTrue(formulario.verificaMsgExecaoNome());     
+		
+	}
+	
+	@Test
+	public void naoDeveAdicionarUmUsuarioSemNomeeSemEmail(){
+		
+		NovoUsuarioPage formulario = usuariosPage.novo();
+		
+		formulario.cadastrar("", "");						
+        
+        assertTrue(formulario.verificaMsgExecaoNome());
+        assertTrue(formulario.verificaMsgExecaoEmail());
+    	        	        
+	}		
 		
 }

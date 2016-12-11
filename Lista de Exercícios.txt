@@ -1,0 +1,17 @@
+Exercícios:
+
+1 - Crie as classes à seguir conforme foi feito para os usuários do sistema:
+
+NovoLeilaoPage
+LeiloesPage
+
+Em seguida crie a classe de teste com o nome LeiloesSystemTest e com os seguintes métodos:
+
+deveCadastrarUmLeilao()
+naoDeveAdicionarUmLeilaoSemNome()
+naoDeveAdicionarUmLeilaoSemValor()
+naoDeveAdicionarUmLeilaoSemNomeEValorInicial()
+
+2 - Crie a classe LanceSystemTest com o método deveFazerUmLance().
+
+3 - Faça o teste para o CRUD (Create, Read, Update and Delete) de Leilões e de Lances.
