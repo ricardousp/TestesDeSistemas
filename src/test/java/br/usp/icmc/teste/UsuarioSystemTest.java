@@ -66,7 +66,8 @@ public class UsuarioSystemTest {
 	@Test
 	public void deveListarUsuarios(){				
 		usuariosPage.visita();
-		int quantidadeDeUsuarios = usuariosPage.getRegistrosDeUsuarios().size();		
+		int quantidadeDeUsuarios = usuariosPage.getRegistrosDeUsuarios().size();
+		// assertEquals(0, quantidadeDeUsuarios); -> Assert Correto!	
 		assertEquals(1, quantidadeDeUsuarios);		
 	}
 	
@@ -89,26 +90,18 @@ public class UsuarioSystemTest {
 	}
 	
 	@Test
-	public void naoDeveAdicionarUmUsuarioSemNome(){		    
-		
-		NovoUsuarioPage formulario = usuariosPage.novo();
-		
-		formulario.cadastrar("", "ricardoramos.usp@gmail.com");				     	        
-        
-        assertTrue(formulario.verificaMsgExecaoNome());     
-		
+	public void naoDeveAdicionarUmUsuarioSemNome(){		    		
+		NovoUsuarioPage formulario = usuariosPage.novo();		
+		formulario.cadastrar("", "ricardoramos.usp@gmail.com");				     	                
+        assertTrue(formulario.verificaMsgExecaoNome());     		
 	}
 	
 	@Test
-	public void naoDeveAdicionarUmUsuarioSemNomeeSemEmail(){
-		
-		NovoUsuarioPage formulario = usuariosPage.novo();
-		
-		formulario.cadastrar("", "");						
-        
+	public void naoDeveAdicionarUmUsuarioSemNomeeSemEmail(){		
+		NovoUsuarioPage formulario = usuariosPage.novo();		
+		formulario.cadastrar("", "");						        
         assertTrue(formulario.verificaMsgExecaoNome());
-        assertTrue(formulario.verificaMsgExecaoEmail());
-    	        	        
+        assertTrue(formulario.verificaMsgExecaoEmail());    	        	       
 	}		
 		
 }
